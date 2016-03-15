@@ -1,0 +1,49 @@
+// Place all the styles related to the homepage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.navbar {
+  border-radius:0;
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 200;
+  box-shadow: 0px 1px 3px #2a2a2a;
+  background-color: transparent;
+  background: transparent;
+}
+
+.navbar a.navbar-brand {
+  font-family: 'Grand Hotel', cursive;
+  font-size: 37px;
+  font-weight: 200;
+}
+
+.hero {
+  background: url('farm5.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height:660px;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar {
+  margin:0;
+}
+
+.frosty {
+  background:rgba(0,0,0, 0.5);
+  color:white;
+  margin-top: 280px;
+}
+
+.frosty h1 {
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 100;
+  text-shadow: rgba(0,0,0,0.95) 1px 1px;
+}
+
+.frosty h2 {
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 200;
+  text-shadow: rgba(0,0,0,0.95) 1px 1px;
+}
