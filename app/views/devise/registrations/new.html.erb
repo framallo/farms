@@ -1,0 +1,21 @@
+<br />
+
+<div class="booyah-box col-xs-8 col-xs-offset-2">
+  <h2>Sign up</h2>
+  <br />
+
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+  <%= f.input :email, autofocus: true %>
+  <br />
+  <%= f.input :password %>
+  <br />
+  <%= f.input :password_confirmation %>
+
+  <br />
+
+  <div class="form_actions">
+    <%= f.button :submit, "Sign up", class: 'btn btn-success btn-sm' %>
+  </div>
+  <% end %>
+</div>
