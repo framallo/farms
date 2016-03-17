@@ -2,6 +2,8 @@ class FarmsController < ApplicationController
 
   def index
     @farms = Farm.all
+    # @farms = @farms.search(params[:q]) if params[:q]
+    @farms = @farms.full_text_search(params[:q]) if params[:q]
   end
 
   def new
