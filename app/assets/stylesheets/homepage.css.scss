@@ -7,8 +7,11 @@
   font-family: "Helvetica Neue", Helvetica;
   font-weight: 200;
   box-shadow: 0px 1px 3px #2a2a2a;
-  background-color: transparent;
-  background: transparent;
+  font-family: 'Muli', sans-serif;
+}
+
+.navbar a {
+  color: #545759;
 }
 
 .navbar a.navbar-brand {
@@ -18,8 +21,9 @@
   color: #545759;
 }
 
+
 .hero {
-  background: url('farm5.jpg') no-repeat center center fixed;
+  background: url('barn-hero.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

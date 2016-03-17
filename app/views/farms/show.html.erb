@@ -1,0 +1,21 @@
+<br />
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-1">
+    <%= image_tag 'tree.jpeg', class: 'img-responsive' %>
+  </div>
+  <div class="col-sm-6">
+    <br />
+    <h3><%= @farm.name %></h3>
+    <p />
+    <%= @farm.address %>
+    <p />
+    <%= @farm.description %>
+  </div>
+</div>
+
+<br />
+
+<div class="col-xs-10 col-xs-offset-1 text-right">
+  <%= link_to 'Edit', edit_farm_path(@farm) %>
+  <%= link_to 'Delete', farm_path(@farm), method: :delete, data: {confirm: 'Are you sure?'} %>
+</div>
