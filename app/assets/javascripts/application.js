@@ -14,3 +14,22 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require_tree .
+//= require jquery.easy-autocomplete
+
+$(document).ready(function(){
+  var options = {
+    url: function(phrase) {
+      return "/farms/autocomplete?q=" + phrase + "&format=json";
+    },
+
+    getValue: "name",
+    template: {
+      type: "links",
+      fields: {
+        link: "url"
+      }
+    }
+
+  };
+  $("#srch-term").easyAutocomplete(options);
+});

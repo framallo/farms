@@ -6,6 +6,13 @@ class FarmsController < ApplicationController
     @farms = @farms.full_text_search(params[:q]) if params[:q]
   end
 
+  def autocomplete
+    @farms = Farm.search_beginning_with(params[:q])
+    @farms = @farms.map { |f| f.attributes.merge(url: farm_path(f)) }
+
+    render json: @farms
+  end
+
   def new
     @farm = Farm.new
   end

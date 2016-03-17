@@ -1,7 +1,12 @@
 Farms::Application.routes.draw do
   devise_for :users
   root 'homepage#index'
-  resources :farms
+  resources :farms do
+    collection do
+      get :autocomplete
+    end
+
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
