@@ -11,4 +11,9 @@
   <%= f.input :description %>
   <%= f.submit 'Save', class: 'btn btn-sm btn-success pull-right' %>
 
+
+  <% @farm.photos.each do |photo| %>
+    <%= image_tag photo.picture %>
+    <%= photo.caption %>
+  <% end %>
   <% end %>
