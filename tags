@@ -1,0 +1,42 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
+AlterFarmsAddUserIdColumn	db/migrate/20160320181057_alter_farms_add_user_id_column.rb	/^class AlterFarmsAddUserIdColumn < ActiveRecord::Migration$/;"	c
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Farms
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+CreateFarms	db/migrate/20160315232306_create_farms.rb	/^class CreateFarms < ActiveRecord::Migration$/;"	c
+CreatePhotos	db/migrate/20160317113847_create_photos.rb	/^class CreatePhotos < ActiveRecord::Migration$/;"	c
+DeviseCreateUsers	db/migrate/20160315115924_devise_create_users.rb	/^class DeviseCreateUsers < ActiveRecord::Migration$/;"	c
+Farm	app/models/farm.rb	/^class Farm < ActiveRecord::Base$/;"	c
+FarmTest	test/models/farm_test.rb	/^class FarmTest < ActiveSupport::TestCase$/;"	c
+Farms	config/application.rb	/^module Farms$/;"	m
+FarmsController	app/controllers/farms_controller.rb	/^class FarmsController < ApplicationController$/;"	c
+FarmsControllerTest	test/controllers/farms_controller_test.rb	/^class FarmsControllerTest < ActionController::TestCase$/;"	c
+FarmsHelper	app/helpers/farms_helper.rb	/^module FarmsHelper$/;"	m
+FarmsHelperTest	test/helpers/farms_helper_test.rb	/^class FarmsHelperTest < ActionView::TestCase$/;"	c
+HomepageController	app/controllers/homepage_controller.rb	/^class HomepageController < ApplicationController$/;"	c
+HomepageControllerTest	test/controllers/homepage_controller_test.rb	/^class HomepageControllerTest < ActionController::TestCase$/;"	c
+HomepageHelper	app/helpers/homepage_helper.rb	/^module HomepageHelper$/;"	m
+HomepageHelperTest	test/helpers/homepage_helper_test.rb	/^class HomepageHelperTest < ActionView::TestCase$/;"	c
+Photo	app/models/photo.rb	/^class Photo < ActiveRecord::Base$/;"	c
+PhotoTest	test/models/photo_test.rb	/^class PhotoTest < ActiveSupport::TestCase$/;"	c
+User	app/models/user.rb	/^class User < ActiveRecord::Base$/;"	c
+UserTest	test/models/user_test.rb	/^class UserTest < ActiveSupport::TestCase$/;"	c
+change	db/migrate/20160315115924_devise_create_users.rb	/^  def change$/;"	f	class:DeviseCreateUsers
+change	db/migrate/20160315232306_create_farms.rb	/^  def change$/;"	f	class:CreateFarms
+change	db/migrate/20160317113847_create_photos.rb	/^  def change$/;"	f	class:CreatePhotos
+change	db/migrate/20160320181057_alter_farms_add_user_id_column.rb	/^  def change$/;"	f	class:AlterFarmsAddUserIdColumn
+create	app/controllers/farms_controller.rb	/^  def create$/;"	f	class:FarmsController
+destroy	app/controllers/farms_controller.rb	/^  def destroy$/;"	f	class:FarmsController
+edit	app/controllers/farms_controller.rb	/^  def edit$/;"	f	class:FarmsController
+farm_params	app/controllers/farms_controller.rb	/^  def farm_params$/;"	f	class:FarmsController
+index	app/controllers/farms_controller.rb	/^  def index$/;"	f	class:FarmsController
+index	app/controllers/homepage_controller.rb	/^  def index$/;"	f	class:HomepageController
+new	app/controllers/farms_controller.rb	/^  def new$/;"	f	class:FarmsController
+show	app/controllers/farms_controller.rb	/^  def show$/;"	f	class:FarmsController
+update	app/controllers/farms_controller.rb	/^  def update$/;"	f	class:FarmsController

@@ -16,6 +16,8 @@
 <br />
 
 <div class="col-xs-10 col-xs-offset-1 text-right">
-  <%= link_to 'Edit', edit_farm_path(@farm) %>
-  <%= link_to 'Delete', farm_path(@farm), method: :delete, data: {confirm: 'Are you sure?'} %>
+  <% if current_user && current_user == @farm.user %>
+    <%= link_to 'Edit', edit_farm_path(@farm) %>
+    <%= link_to 'Delete', farm_path(@farm), method: :delete, data: {confirm: 'Are you sure?'} %>
+  <% end %>
 </div>

@@ -1,4 +1,5 @@
 class FarmsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @farms = Farm.all
@@ -9,8 +10,12 @@ class FarmsController < ApplicationController
   end
 
   def create
-    @farm = Farm.create(farm_params)
-    redirect_to farms_path
+    @farm = current_user.farms.create(farm_params)
+    if @farm.valid?
+      redirect_to farm_path(@farm)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -19,16 +24,34 @@ class FarmsController < ApplicationController
 
   def edit
     @farm = Farm.find(params[:id])
+
+    if @farm.user != current_user
+      return render text: 'You can only edit your own farm', status: :forbidden
+    end
   end
 
   def update
     @farm = Farm.find(params[:id])
+
+    if @farm.user != current_user
+      return render text: 'You can only update your own farm', status: :forbidden
+    end
+
     @farm.update_attributes(farm_params)
-    redirect_to farm_path(@farm)
+    if @farm.valid?
+      redirect_to farm_path(@farm)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
     @farm = Farm.find(params[:id])
+
+    if @farm.user != current_user
+      return render text: 'You can only delete your own farm', status: :forbidden
+    end
+
     @farm.destroy
     redirect_to farms_path
   end
