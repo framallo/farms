@@ -5,6 +5,8 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
+AddPictureColumnToPhotoTable	db/migrate/20160320203345_add_picture_column_to_photo_table.rb	/^class AddPictureColumnToPhotoTable < ActiveRecord::Migration$/;"	c
+AlterFarmsAddLatAndLong	db/migrate/20160320210606_alter_farms_add_lat_and_long.rb	/^class AlterFarmsAddLatAndLong < ActiveRecord::Migration$/;"	c
 AlterFarmsAddUserIdColumn	db/migrate/20160320181057_alter_farms_add_user_id_column.rb	/^class AlterFarmsAddUserIdColumn < ActiveRecord::Migration$/;"	c
 Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Farms
 ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
@@ -25,18 +27,26 @@ HomepageHelper	app/helpers/homepage_helper.rb	/^module HomepageHelper$/;"	m
 HomepageHelperTest	test/helpers/homepage_helper_test.rb	/^class HomepageHelperTest < ActionView::TestCase$/;"	c
 Photo	app/models/photo.rb	/^class Photo < ActiveRecord::Base$/;"	c
 PhotoTest	test/models/photo_test.rb	/^class PhotoTest < ActiveSupport::TestCase$/;"	c
+PhotosController	app/controllers/photos_controller.rb	/^class PhotosController < ApplicationController$/;"	c
+PhotosControllerTest	test/controllers/photos_controller_test.rb	/^class PhotosControllerTest < ActionController::TestCase$/;"	c
+PhotosHelper	app/helpers/photos_helper.rb	/^module PhotosHelper$/;"	m
+PhotosHelperTest	test/helpers/photos_helper_test.rb	/^class PhotosHelperTest < ActionView::TestCase$/;"	c
 User	app/models/user.rb	/^class User < ActiveRecord::Base$/;"	c
 UserTest	test/models/user_test.rb	/^class UserTest < ActiveSupport::TestCase$/;"	c
 change	db/migrate/20160315115924_devise_create_users.rb	/^  def change$/;"	f	class:DeviseCreateUsers
 change	db/migrate/20160315232306_create_farms.rb	/^  def change$/;"	f	class:CreateFarms
 change	db/migrate/20160317113847_create_photos.rb	/^  def change$/;"	f	class:CreatePhotos
 change	db/migrate/20160320181057_alter_farms_add_user_id_column.rb	/^  def change$/;"	f	class:AlterFarmsAddUserIdColumn
+change	db/migrate/20160320203345_add_picture_column_to_photo_table.rb	/^  def change$/;"	f	class:AddPictureColumnToPhotoTable
+change	db/migrate/20160320210606_alter_farms_add_lat_and_long.rb	/^  def change$/;"	f	class:AlterFarmsAddLatAndLong
 create	app/controllers/farms_controller.rb	/^  def create$/;"	f	class:FarmsController
+create	app/controllers/photos_controller.rb	/^  def create$/;"	f	class:PhotosController
 destroy	app/controllers/farms_controller.rb	/^  def destroy$/;"	f	class:FarmsController
 edit	app/controllers/farms_controller.rb	/^  def edit$/;"	f	class:FarmsController
 farm_params	app/controllers/farms_controller.rb	/^  def farm_params$/;"	f	class:FarmsController
 index	app/controllers/farms_controller.rb	/^  def index$/;"	f	class:FarmsController
 index	app/controllers/homepage_controller.rb	/^  def index$/;"	f	class:HomepageController
 new	app/controllers/farms_controller.rb	/^  def new$/;"	f	class:FarmsController
+photo_params	app/controllers/photos_controller.rb	/^def photo_params$/;"	f	class:PhotosController
 show	app/controllers/farms_controller.rb	/^  def show$/;"	f	class:FarmsController
 update	app/controllers/farms_controller.rb	/^  def update$/;"	f	class:FarmsController
