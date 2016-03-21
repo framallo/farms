@@ -1,12 +1,12 @@
 
 <div class="row">
-<% @farm.photos.each do |photo| %>
-<div class="col-sm-4 farm-slider">
-<% if photo.present? %>
-<%= image_tag photo.picture, class: 'img-responsive' %>
-<% end %>
-</div>
-<% end %>
+  <% @farm.photos.each do |photo| %>
+  <div class="col-sm-4 farm-slider">
+    <% if photo.present? %>
+    <%= image_tag photo.picture, class: 'img-responsive' %>
+    <% end %>
+  </div>
+  <% end %>
 </div>
 
 <br />
@@ -25,9 +25,9 @@
 
 </div>
 
-<div class=" text-right">
   <% if current_user && current_user == @farm.user %>
   <!-- Photo Button trigger modal -->
+  <div class="show-page-btn text-right">
   <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myPhoto">Upload Photo</button>
   <%= link_to 'Edit', edit_farm_path(@farm), class: 'btn btn-primary btn-sm' %>
   <!-- <%= link_to 'Delete', farm_path(@farm), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-sm' %> -->

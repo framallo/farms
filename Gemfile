@@ -47,6 +47,8 @@ gem 'carrierwave'
 
 gem "fog", "~> 1.3.1"
 
+gem 'will_paginate', '~> 3.0.6'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
