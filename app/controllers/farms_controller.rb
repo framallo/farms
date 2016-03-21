@@ -20,6 +20,7 @@ class FarmsController < ApplicationController
 
   def show
     @farm = Farm.find(params[:id])
+    @photo = Photo.new
   end
 
   def edit

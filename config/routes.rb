@@ -4,6 +4,7 @@ Farms::Application.routes.draw do
 
   resources :farms do
     resources :photos, only: :create
+    resources :comments, only: :create
   end
 
 

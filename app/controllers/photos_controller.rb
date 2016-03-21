@@ -1,13 +1,18 @@
 class PhotosController < ApplicationController
+  before_action :authenticate_user!
+
 
   def create
     @farm = Farm.find(params[:farm_id])
-    @farm.photo.create(photo_params)
-    redirect_to farm_path(@farm
+    @farm.photos.create(photo_params)
+
+    redirect_to farm_path(@farm)
   end
 
-private
+  private
 
-def photo_params
-  params.require(:photo).permit(:caption, :picture)
+  def photo_params
+    params.require(:photo).permit(:caption, :picture)
+  end
+
 end
