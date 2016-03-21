@@ -46,6 +46,12 @@
     <p />
     <br />
     <%= @farm.description %>
+
+    <% @farm.amenities.each do |amenity| %>
+      <%= amenity.name %>
+      <%= amenity.exists %>
+      <br />
+    <% end %>
   </div>
 </div>
 
