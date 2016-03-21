@@ -1,5 +1,5 @@
 Farms::Application.configure do
-    config.action_mailer.default_url_options = { host: 'http://lunas-farms.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'http://lunas-farms.herokuapp.com' }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -78,4 +78,6 @@ Farms::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+
 end

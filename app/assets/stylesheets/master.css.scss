@@ -16,6 +16,7 @@ body {
     margin:10px;
   }
 
+// Remove round edges from all buttons
   .btn {
     border-radius:                    0px;
     -webkit-border-radius:            0px;
@@ -25,16 +26,3 @@ body {
   abbr[title], abbr[data-original-title] {
     cursor: default;
   }
-
-  #map {
-    height: 300px;
-  }
-
-.farm-slider {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.show-page-btn {
-  padding-right: 10px;
-}
