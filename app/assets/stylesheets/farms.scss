@@ -7,8 +7,8 @@
 }
 
 .farm-slider {
-padding-left: 0;
-padding-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .l-pagination {
@@ -22,36 +22,48 @@ padding-right: 0;
 }
 
 .l-pagination a, .l-pagination span {
-    padding: 0.2em 0.3em;
+  padding: 0.2em 0.3em;
 }
 
 .l-pagination .disabled {
-    color: #aaaaaa;
+  color: #aaaaaa;
 }
 
 .l-pagination .current {
-    font-style: normal;
-    font-weight: bold;
-    background-color: #bebebe;
-    display: inline-block;
-    width: 1.4em;
-    height: 1.4em;
-    line-height: 1.5;
-    -moz-border-radius: 1em;
-    -webkit-border-radius: 1em;
-    border-radius: 1em;
-    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
+  font-style: normal;
+  font-weight: bold;
+  background-color: #bebebe;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.5;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
 }
 
 .l-pagination a {
-    text-decoration: none;
-    color: #545759;
+  text-decoration: none;
+  color: #545759;
 }
 
 .l-pagination a:hover, .l-pagination a:focus {
-      text-decoration: underline;
+  text-decoration: underline;
 }
 
-.carousel-inner {
-height: 300px;
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  line-height: 1;
+  height: 550px;
+  width: 100%;
+}
+
+
+
+
+.carousel {
+  box-shadow: 0px 3px 8px #2a2a2a;
 }
