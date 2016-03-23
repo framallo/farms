@@ -1,6 +1,7 @@
 
 <% if @farm.photos.any? %>
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <% @farm.photos.each_with_index do |photo, index| %>
@@ -80,8 +81,10 @@ function initMap() {
   var myLatLng = {lat: <%= @farm.latitude %>, lng: <%= @farm.longitude %>};
 
   var map = new google.maps.Map(document.getElementById('map'), {
+    scrollwheel: false,
     zoom: 12,
-    center: myLatLng
+    center: myLatLng,
+    mapTypeId: google.maps.MapTypeId.TERRAIN
   });
 
   var marker = new google.maps.Marker({

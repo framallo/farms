@@ -2,7 +2,7 @@ class FarmsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @farms = Farm.all.paginate(:page => params[:page], :per_page => 3)
+    @farms = Farm.all.paginate(:page => params[:page], :per_page => 4)
   end
 
   def new

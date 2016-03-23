@@ -11,6 +11,9 @@ AlterFarmsAddUserIdColumn	db/migrate/20160320181057_alter_farms_add_user_id_colu
 Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Farms
 ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
 ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+Comment	app/models/comment.rb	/^class Comment < ActiveRecord::Base$/;"	c
+CommentTest	test/models/comment_test.rb	/^class CommentTest < ActiveSupport::TestCase$/;"	c
+CreateComments	db/migrate/20160323112912_create_comments.rb	/^class CreateComments < ActiveRecord::Migration$/;"	c
 CreateFarms	db/migrate/20160315232306_create_farms.rb	/^class CreateFarms < ActiveRecord::Migration$/;"	c
 CreatePhotos	db/migrate/20160317113847_create_photos.rb	/^class CreatePhotos < ActiveRecord::Migration$/;"	c
 DeviseCreateUsers	db/migrate/20160315115924_devise_create_users.rb	/^class DeviseCreateUsers < ActiveRecord::Migration$/;"	c
@@ -40,6 +43,7 @@ change	db/migrate/20160317113847_create_photos.rb	/^  def change$/;"	f	class:Cre
 change	db/migrate/20160320181057_alter_farms_add_user_id_column.rb	/^  def change$/;"	f	class:AlterFarmsAddUserIdColumn
 change	db/migrate/20160320203345_add_picture_column_to_photo_table.rb	/^  def change$/;"	f	class:AddPictureColumnToPhotoTable
 change	db/migrate/20160320210606_alter_farms_add_lat_and_long.rb	/^  def change$/;"	f	class:AlterFarmsAddLatAndLong
+change	db/migrate/20160323112912_create_comments.rb	/^  def change$/;"	f	class:CreateComments
 create	app/controllers/farms_controller.rb	/^  def create$/;"	f	class:FarmsController
 create	app/controllers/photos_controller.rb	/^  def create$/;"	f	class:PhotosController
 destroy	app/controllers/farms_controller.rb	/^  def destroy$/;"	f	class:FarmsController
