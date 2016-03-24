@@ -6,11 +6,6 @@
   height: 300px;
 }
 
-.farm-slider {
-padding-left: 0;
-padding-right: 0;
-}
-
 .l-pagination {
   background: #fff;
   opacity:0.85;
@@ -22,36 +17,96 @@ padding-right: 0;
 }
 
 .l-pagination a, .l-pagination span {
-    padding: 0.2em 0.3em;
+  padding: 0.2em 0.3em;
 }
 
 .l-pagination .disabled {
-    color: #aaaaaa;
+  color: #aaaaaa;
 }
 
 .l-pagination .current {
-    font-style: normal;
-    font-weight: bold;
-    background-color: #bebebe;
-    display: inline-block;
-    width: 1.4em;
-    height: 1.4em;
-    line-height: 1.5;
-    -moz-border-radius: 1em;
-    -webkit-border-radius: 1em;
-    border-radius: 1em;
-    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
+  font-style: normal;
+  font-weight: bold;
+  background-color: #bebebe;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.5;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
 }
 
 .l-pagination a {
-    text-decoration: none;
-    color: #545759;
+  text-decoration: none;
+  color: #545759;
 }
 
 .l-pagination a:hover, .l-pagination a:focus {
-      text-decoration: underline;
+  text-decoration: underline;
 }
 
+// .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+//   display: block;
+//   max-width: 100%;
+//   height: auto;
+//   line-height: 1;
+//   height: 333px;
+// }
+
+// images bootstrap grid next to each other, not getting used:
+// .farm-slider {
+//   padding-left: 0;
+//   padding-right: 0;
+//   height: 195px;
+//   position: relative;
+//   overflow: hidden;
+// }
+
+/* Makes images fully responsive */
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ------------------- Carousel Styling ------------------- */
+
 .carousel-inner {
-height: 300px;
+  border-radius: 15px;
+}
+
+.carousel-caption {
+  background-color: rgba(0,0,0,.5);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  padding: 0 0 10px 25px;
+  color: #fff;
+  text-align: left;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 15;
+  margin: 0;
+  padding: 0 25px 25px 0;
+  text-align: right;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none;
 }
