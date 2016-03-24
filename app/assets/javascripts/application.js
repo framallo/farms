@@ -13,4 +13,20 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require jquery-ui
 //= require_tree .
+
+$('#farms-filters').ready(function() {
+  var options = {
+    defaultDate: "+1w",
+    changeMonth: true,
+    numberOfMonths: 3,
+    dateFormat: 'yy-mm-dd',
+    onClose: function( selectedDate ) {
+      $( "#to" ).datepicker( "option", "minDate", selectedDate );
+    }
+  }
+
+  $( "#from" ).datepicker(options);
+  $( "#to" ).datepicker(options);
+});

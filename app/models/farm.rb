@@ -4,6 +4,10 @@ class Farm < ActiveRecord::Base
   has_many :amenities
   has_many :comments
 
+  scope :filter_from, ->(date) { where("created_at > ?", Date.parse(date).beginning_of_day) if date }
+  scope :filter_to, ->(date) { where("created_at < ?", Date.parse(date).end_of_day) if date }
+
+
   # geocoded_by :address
   after_validation :geocode
   after_create :populate_amenities
