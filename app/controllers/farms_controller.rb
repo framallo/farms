@@ -1,5 +1,6 @@
 class FarmsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+# same as: before_action(:authenticate_user!, { only: [:new, :create, :edit, :update, :destroy]})
 
   def index
     @farms = Farm.all.paginate(:page => params[:page], :per_page => 4)
@@ -21,6 +22,7 @@ class FarmsController < ApplicationController
   def show
     @farm = Farm.find(params[:id])
     @photo = Photo.new
+    @comment = Comment.new
   end
 
   def edit

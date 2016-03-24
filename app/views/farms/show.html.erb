@@ -1,4 +1,4 @@
-
+<!--  Carousel/Slider -->
 <% if @farm.photos.any? %>
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
 
@@ -10,12 +10,16 @@
       <% else %>
       <div class="item">
         <% end %>
-        <%= image_tag photo.picture, class: 'img-responsive' %>
+
+<!-- use line below for cloudinary transformation -->
+        <%= cl_image_tag(photo.picture.url(:standard)) %>
+<!-- use line below for carousel/slider transformation -->
+        <!-- <%= image_tag photo.picture, class: 'img-responsive' %> -->
       </div>
       <% end %>
     </div>
 
-    <!-- Controls -->
+    <!-- Controls for slides -->
     <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left"></span>
     </a>
@@ -25,19 +29,19 @@
   </div>
   <% end %>
 
-
   <!-- <div class="row">
-    <% @farm.photos.each do |photo| %>
-    <div class="col-xs-4 farm-slider">
-      <% if photo.present? %>
-      <%= image_tag photo.picture, class: 'img-responsive' %>
-      <% end %>
-    </div>
-    <% end %>
+  <% @farm.photos.each do |photo| %>
+  <div class="col-xs-4 farm-slider">
+  <% if photo.present? %>
+  <%= image_tag photo.picture, class: 'img-responsive' %>
+  <% end %>
+</div>
+<% end %>
 </div> -->
 
 <br />
 
+<!-- Farm Description -->
 <div class="row">
   <div class="col-xs-10 col-xs-offset-1">
     <br />
@@ -55,18 +59,81 @@
     <% if current_user && current_user == @farm.user %>
     <!-- Photo Button trigger modal -->
     <div class="text-right">
-      <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myPhoto">Upload Photo</button>
-      <%= link_to 'Edit', edit_farm_path(@farm), class: 'btn btn-primary btn-sm' %>
-      <!-- <%= link_to 'Delete', farm_path(@farm), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-sm' %> -->
-      <% end %>
-    </div>
+      <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myPhoto">
+        Upload Photo
+      </button>
 
+      <!-- Edit Farm button -->
+      <%= link_to 'Edit', edit_farm_path(@farm), class: 'btn btn-primary btn-sm' %>
+      <% end %>
+
+      <!-- Comemnt Button trigger modal -->
+      <div class="col-xs-10 col-xs-offset-1">
+        <% if current_user && current_user != @farm.user %>
+        <div class="text-right">
+          <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#myComment">
+            Leave a Review
+          </button>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <br />
 
+<!-- Photo Modal -->
+<div class="modal fade" id="myPhoto" tabindex="-1" role="dialog" aria-labelledby="myPhotoLabel" aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
 
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myPhotoLabel">Add Farm Photos to Carousel</h4>
+      </div>
+
+      <div class="modal-body">
+        <%= simple_form_for @photo, url: farm_photos_path(@farm) do |f| %>
+        <%= f.input :picture, label: false %>
+        <!-- <%= f.input :caption %> -->
+      </div>
+
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button> -->
+        <%= f.submit "Upload", class: 'btn btn-sm btn-success' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Comment Modal -->
+<div class="modal fade" id="myComment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myCommentLabel">Leave a Review</h4>
+      </div>
+
+      <div class="modal-body">
+        <%= simple_form_for [@farm, @comment] do |f| %>
+        <%= f.input :message, label: Comment %>
+      </div>
+
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button> -->
+        <%= f.submit "Add", class: 'btn btn-sm btn-success' %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Google Maps Terrain -->
 <% if @farm.latitude.present? && @farm.longitude.present? %>
 <style>
 html, body {
@@ -101,23 +168,22 @@ src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></
 <div id="map"></div>
 <% end %>
 
-<!-- Photo Modal -->
-<div class="modal fade" id="myPhoto" tabindex="-1" role="dialog" aria-labelledby="myPhotoLabel" aria-hidden="true" data-backdrop="false">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myPhotoLabel">Upload Farm Photo</h4>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for @photo, url: farm_photos_path(@farm) do |f| %>
-        <%= f.input :picture %>
-        <%= f.input :caption %>
-        <%= f.submit "Save", class: 'btn btn-sm btn-success' %>
-        <% end %>
-      </div>
-    </div>
+<br />
 
-  </div>
+<!-- <div class="clear"></div>
+<%= simple_form_for @comment, url: farm_comments_path(@farm) do |f| %>
+<%= f.input :message, label: "Review" %>
+<%= f.submit "Leave a Review", class: 'btn btn-sm btn-success' %>
+<% end %> -->
+
+<% @farm.comments.each do |comment| %>
+<div class="col-xs-10 col-sm-10 col-md-10 col-lg-6">
+  <blockquote>
+    <%= comment.message %>
+    <small><%= comment.user.email.split('@')[0] %></small>
+  </blockquote>
 </div>
+<% end %>
+
+
 </div>

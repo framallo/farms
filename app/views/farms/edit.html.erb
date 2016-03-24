@@ -9,8 +9,9 @@
   <%= f.input :name %>
   <%= f.input :address %>
   <%= f.input :description %>
-  <%= f.submit 'Save', class: 'btn btn-sm btn-success pull-right' %>
+  <%= f.submit 'Save Changes', class: 'btn btn-sm btn-success pull-right' %>
 
+  <%= link_to 'Delete Farm', farm_path(@farm), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-sm' %>
   <% end %>
 
 </div>
