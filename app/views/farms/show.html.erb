@@ -1,5 +1,13 @@
 <!--  Carousel/Slider -->
-<% if @farm.photos.any? %>
+
+<% if @farm.photos.empty? %>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+  <div class="placeholder carousel-inner">
+    <%= image_tag 'placeholder.png', class: 'img-responsive' %>
+  </div>
+</div>
+
+<% else %>
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
 
   <!-- Wrapper for slides -->
@@ -11,9 +19,10 @@
       <div class="item">
         <% end %>
 
-<!-- use line below for cloudinary transformation -->
+        <!-- use line below for cloudinary transformation -->
         <%= cl_image_tag(photo.picture.url(:standard)) %>
-<!-- use line below for carousel/slider transformation -->
+
+        <!-- use line below for carousel/slider transformation -->
         <!-- <%= image_tag photo.picture, class: 'img-responsive' %> -->
       </div>
       <% end %>
