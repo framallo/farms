@@ -69,7 +69,7 @@
     <!-- Photo Button trigger modal -->
     <div class="text-right">
       <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myPhoto">
-        Upload Photo
+        Upload Slider Images
       </button>
 
       <!-- Edit Farm button -->
@@ -178,6 +178,8 @@ src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></
 <% end %>
 
 <br />
+<br />
+
 
 <!-- <div class="clear"></div>
 <%= simple_form_for @comment, url: farm_comments_path(@farm) do |f| %>
@@ -185,14 +187,27 @@ src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></
 <%= f.submit "Leave a Review", class: 'btn btn-sm btn-success' %>
 <% end %> -->
 
-<% @farm.comments.each do |comment| %>
-<div class="col-xs-10 col-sm-10 col-md-10 col-lg-6">
-  <blockquote>
-    <%= comment.message %>
-    <small><%= comment.user.email.split('@')[0] %></small>
-  </blockquote>
+<% if @farm.comments.present? %>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <h3> Reviews </h3>
+  </div>
 </div>
-<% end %>
 
+<br />
 
+<div class="row">
+  <div class="booyah-box col-xs-10 col-xs-offset-1">
+    <% @farm.comments.each do |comment| %>
+    <div class="col-xs-12 col-sm-6 col-lg-4">
+      <blockquote>
+        <%= comment.message %>
+        <small><%= comment.user.email.split('@')[0] %></small>
+      </blockquote>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
 </div>
+
+<br />

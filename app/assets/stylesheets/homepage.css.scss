@@ -21,6 +21,22 @@
   color: #545759;
 }
 
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: white;
+}
+
+
+
+.list-farm-btn {
+  border: solid 1px;
+  background-color: transparent;
+  display: inline-block;    margin-bottom: 0;    -webkit-border-radius: 2px;    -moz-border-radius: 2px;    border-radius: 2px;    border: 1px solid;    text-align: center;    vertical-align: middle;    font-weight: bold;    line-height: 1.43;    -webkit-user-select: none;    -moz-user-select: none;    -ms-user-select: none;    user-select: none;    white-space: nowrap;    cursor: pointer;
+  font-weight: normal;
+  border-width: 2px;
+  position: relative;
+}
+
 
 .hero {
   background: url('barn-hero.jpg') no-repeat center center fixed;
