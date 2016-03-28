@@ -162,86 +162,122 @@
 
         </div>
 
-          <div class="modal-footer">
-            <!-- <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button> -->
-            <%= f.submit "Add", class: 'btn btn-sm btn-success' %>
-            <% end %>
-          </div>
-
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button> -->
+          <%= f.submit "Add", class: 'btn btn-sm btn-success' %>
+          <% end %>
         </div>
+
       </div>
     </div>
+  </div>
 
-    <!-- Google Maps Terrain -->
-    <% if @farm.latitude.present? && @farm.longitude.present? %>
-    <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-    </style>
+  <!-- Google Maps Terrain -->
+  <% if @farm.latitude.present? && @farm.longitude.present? %>
+  <style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  </style>
 
-    <script>
-    function initMap() {
-      var myLatLng = {lat: <%= @farm.latitude %>, lng: <%= @farm.longitude %>};
+  <script>
+  function initMap() {
+    var myLatLng = {lat: <%= @farm.latitude %>, lng: <%= @farm.longitude %>};
 
-      var map = new google.maps.Map(document.getElementById('map'), {
-        scrollwheel: false,
-        zoom: 12,
-        center: myLatLng,
-        mapTypeId: google.maps.MapTypeId.TERRAIN
-      });
+    var map = new google.maps.Map(document.getElementById('map'), {
+      scrollwheel: false,
+      zoom: 12,
+      center: myLatLng,
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+    });
 
-      var marker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        title: 'Hello World!'
-      });
-    }
-    </script>
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: 'Hello World!'
+    });
+  }
+  </script>
 
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
 
-    <div id="map"></div>
-    <% end %>
+  <div id="map"></div>
+  <% end %>
 
-    <br />
-    <br />
+  <br />
+  <br />
 
-    <% if @farm.comments.present? %>
-    <div class="row">
-      <div class="review-section col-xs-10 col-xs-offset-1">
-        <% if @farm.comments.count == 1 %>
-        <%= @farm.comments.count %> Review
-        <% else %>
-        <%= @farm.comments.count %> Reviews
-        <% end %>
-        <!-- Comment Button trigger modal -->
-        <% if current_user && current_user != @farm.user %>
-        <button class="btn-review btn btn-sm btn-success" data-toggle="modal" data-target="#myComment">
-          Leave a Review
-        </button>
-        <% end %>
+  <!-- No Reviews -->
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="no_reviews_yet">
+        <% if @farm.comments.blank? %>
+        <h4>Reviews</h4>
+        <br />
+        <h5>This farm has no reviews yet. Yours could be the first one!</h5>
       </div>
     </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <% if current_user && current_user != @farm.user %>
+      <!-- Comment Button trigger modal -->
+      <button class="btn-review btn btn-sm btn-success" data-toggle="modal" data-target="#myComment">
+        Leave a Review
+      </button>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
 
-    <div class="row">
-      <div class="booyah-box col-xs-10 col-xs-offset-1">
-        <% @farm.comments.each do |comment| %>
-        <div class="col-xs-12">
-          <p class="user">
-            <%= comment.user.email.split('@')[0] %>
-            <%= comment.humanized_rating %>
-            <p class="review">
-              <%= comment.message %>
-              <hr>
-            </div>
+  <!-- Reviews -->
+  <div class="row">
+    <div class="review-section col-xs-10 col-xs-offset-1">
+      <% if @farm.comments.present? %>
+      <% if @farm.comments.count == 1 %>
+      <%= @farm.comments.count %> Review
+      <% else %>
+      <%= @farm.comments.count %> Reviews
+      <% end %>
+
+      <% if current_user && current_user != @farm.user %>
+      <!-- Comment Button trigger modal -->
+      <button class="btn btn-sm btn-success pull-right" data-toggle="modal" data-target="#myComment">
+        Leave a Review
+      </button>
+      <% end %>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="row">
+    <div class="booyah-box col-xs-10 col-xs-offset-1">
+      <% @farm.comments.each do |comment| %>
+      <div class="col-xs-12">
+        <p class="user">
+          <%= comment.user.email.split('@')[0] %>
+          <%= comment.humanized_rating %>
+          <p class="review">
+            <%= comment.message %>
+            <% if @farm.comments.count > 1 %>
+            <hr>
             <% end %>
           </div>
           <% end %>
         </div>
+        <% end %>
+      </div>
 
-        <br />
-        <br />
+      <div class="row">
+        <div class="l-pagination">
+          <%= will_paginate @comments %>
+        </div>
+      </div>
+
+      <br />
+      <br />

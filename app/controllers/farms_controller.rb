@@ -23,6 +23,7 @@ class FarmsController < ApplicationController
     @farm = Farm.find(params[:id])
     @photo = Photo.new
     @comment = Comment.new
+    @comments = Comment.all.paginate(:page => params[:page], :per_page => 4)
   end
 
   def edit
