@@ -4,9 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
 
+  acts_as_messageable
+
   has_many :farms
   has_many :photos
   has_many :comments
-
 
 end
