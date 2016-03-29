@@ -51,6 +51,11 @@ gem 'will_paginate', '~> 3.0.6'
 
 gem 'cloudinary'
 
+gem 'fullcalendar-rails'
+
+gem 'momentjs-rails'
+
+gem 'mailboxer'
 
 
 # Use ActiveModel has_secure_password

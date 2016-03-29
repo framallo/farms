@@ -29,11 +29,27 @@ abbr[title], abbr[data-original-title] {
 }
 
 .clear {
-    clear: both;
+  clear: both;
 }
 
 .btn-danger {
   color: #fff;
   background-color: #ec6e67;
   border-color: transparent;
+}
+
+Li.list-farm-btn a {
+  padding: 4px 12px;
+}
+
+Li.list-farm-btn {
+  border-color: #545759;
+  line-height: 61px; margin-top: 10px;
+  margin-right: 15px;
+}
+
+.alert-info {
+  position: absolute;
+  left: 50%;
+  margin-left: -100px;
 }

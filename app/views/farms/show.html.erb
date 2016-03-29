@@ -1,3 +1,26 @@
+<!-- <br />
+
+<script>
+$(document).ready(function() {
+
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+        // put your options and callbacks here
+    })
+
+});
+</script>
+
+<div id='calendar'></div>
+
+<br />
+<br />
+<br />
+<br />
+<br /> -->
+
+
 <!--  Carousel/Slider -->
 <% if @farm.photos.empty? %>
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
@@ -48,11 +71,11 @@
       <!-- Photo Button trigger modal -->
       <div class="btn-edit-details text-right">
         <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myPhoto">
-          Upload Images
+          <i class="fa fa-camera"></i> Add Photo
         </button>
 
         <!-- Edit Farm button -->
-        <%= link_to 'Edit Details', edit_farm_path(@farm), class: 'btn btn-primary btn-sm' %>
+        <%= link_to 'Farm Settings', edit_farm_path(@farm), class: 'btn btn-primary btn-sm' %>
         <% end %>
       </div>
     </div>
@@ -211,6 +234,8 @@
   <br />
 
   <!-- No Reviews -->
+  <% if current_user && current_user != @farm.user %>
+
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
       <div class="no_reviews_yet">
@@ -224,7 +249,6 @@
   <br />
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-      <% if current_user && current_user != @farm.user %>
       <!-- Comment Button trigger modal -->
       <button class="btn-review btn btn-sm btn-success" data-toggle="modal" data-target="#myComment">
         Leave a Review
@@ -257,27 +281,32 @@
 
   <div class="row">
     <div class="booyah-box col-xs-10 col-xs-offset-1">
-      <% @farm.comments.each do |comment| %>
+      <% @comments.each do |comment| %>
       <div class="col-xs-12">
         <p class="user">
           <%= comment.user.email.split('@')[0] %>
           <%= comment.humanized_rating %>
-          <p class="review">
-            <%= comment.message %>
-            <% if @farm.comments.count > 1 %>
-            <hr>
-            <% end %>
-          </div>
+        </p>
+        <p class="review">
+          <%= comment.message %>
+          <% if @farm.comments.count > 1 %>
+          <hr>
           <% end %>
-        </div>
-        <% end %>
+        </p>
       </div>
+      <% end %>
 
-      <div class="row">
-        <div class="l-pagination">
-          <%= will_paginate @comments %>
-        </div>
-      </div>
 
-      <br />
-      <br />
+            <div class="l-pagination">
+              <%= will_paginate @comments %>
+            </div>
+
+    </div>
+
+    <% end %>
+  </div>
+
+
+
+  <br />
+  <br />

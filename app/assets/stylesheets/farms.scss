@@ -8,11 +8,9 @@
 
 .l-pagination {
   background: #fff;
-  opacity:0.85;
   text-align: center;
   cursor: default;
-  margin-top:10px;
-  margin-bottom:20px;
+
   background: #fff;
 }
 
@@ -47,22 +45,10 @@
   text-decoration: underline;
 }
 
-// .carousel-inner > .item > img, .carousel-inner > .item > a > img {
-//   display: block;
-//   max-width: 100%;
-//   height: auto;
-//   line-height: 1;
-//   height: 333px;
-// }
-
-// images bootstrap grid next to each other, not getting used:
-// .farm-slider {
-//   padding-left: 0;
-//   padding-right: 0;
-//   height: 195px;
-//   position: relative;
-//   overflow: hidden;
-// }
+.pagination {
+  margin: 0;
+  margin-bottom: 7px;
+}
 
 /* Makes images fully responsive */
 
@@ -129,5 +115,4 @@
   font-size: 18px;
   padding-right: 0;
   padding-left: 0;
-
 }
