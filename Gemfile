@@ -49,6 +49,8 @@ gem "fog", "~> 1.3.1"
 
 gem 'will_paginate', '~> 3.0.6'
 
+gem 'will_paginate-bootstrap'
+
 gem 'cloudinary'
 
 gem 'fullcalendar-rails'
@@ -56,6 +58,8 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
 gem 'mailboxer'
+
+gem 'rollbar', '~> 2.8.3'
 
 
 # Use ActiveModel has_secure_password
