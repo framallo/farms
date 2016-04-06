@@ -18,10 +18,8 @@
       <% else %>
       <div class="item">
         <% end %>
-        <!-- use line below for cloudinary transformation -->
+        <!-- cloudinary transformation -->
         <%= cl_image_tag(photo.picture.url(:standard)) %>
-        <!-- use line below for carousel/slider transformation -->
-        <!-- <%= image_tag photo.picture, class: 'img-responsive' %> -->
       </div>
       <% end %>
     </div>
@@ -59,6 +57,8 @@
     </div>
   </div>
 
+
+
   <!-- Farm Description -->
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
@@ -86,218 +86,217 @@
 
   <br />
 
+  <!-- Farm Amenities -->
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <h5>List all amenities here</h5>
+    <% @farm.amenities.map do |amenity| %>
+    <div class="col-xs-5 col-xs-offset-1 col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-1">
+      <%= amenity.name %>
     </div>
-  </div>
-
-  <br />
-
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <hr>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <h4>Special Events</h4>
-    </div>
-  </div>
-
-  <br />
-
-  <div class="row">
-    <div class="col-xs-5 col-xs-offset-1">
-      <h5>List of seasonal events here</h5>
-    </div>
-    <div class="col-xs-5 col-xs-offset-1">
-      <h5>Calender here</h5>
-    </div>
-  </div>
-
-  <br />
-  <br />
-
-  <!-- Photo Modal -->
-  <div class="modal fade" id="myPhoto" tabindex="-1" role="dialog" aria-labelledby="myPhotoLabel" aria-hidden="true" data-backdrop="false">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myPhotoLabel">Add Farm Photos</h4>
-        </div>
-
-        <div class="modal-body">
-          <%= simple_form_for @photo, url: farm_photos_path(@farm) do |f| %>
-          <%= f.input :picture, label: false %>
-          <!-- <%= f.input :caption %> -->
-        </div>
-
-        <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button> -->
-          <%= f.submit "Upload", class: 'btn btn-sm btn-success' %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Comment Modal -->
-  <div class="modal fade" id="myComment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myCommentLabel">Leave a Review</h4>
-        </div>
-
-        <div class="modal-body">
-          <%= simple_form_for [@farm, @comment] do |f| %>
-          <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
-          <br />
-          <%= f.input :message, label: Comment %>
-
-        </div>
-
-        <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button> -->
-          <%= f.submit "Add", class: 'btn btn-sm btn-success' %>
-          <% end %>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- Google Maps Terrain -->
-  <% if @farm.latitude.present? && @farm.longitude.present? %>
-  <style>
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  </style>
-
-  <script>
-  function initMap() {
-    var myLatLng = {lat: <%= @farm.latitude %>, lng: <%= @farm.longitude %>};
-
-    var map = new google.maps.Map(document.getElementById('map'), {
-      scrollwheel: false,
-      zoom: 12,
-      center: myLatLng,
-      mapTypeId: google.maps.MapTypeId.TERRAIN
-    });
-
-    var marker = new google.maps.Marker({
-      position: myLatLng,
-      map: map,
-      title: 'Hello World!'
-    });
-  }
-  </script>
-
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
-
-  <div id="map"></div>
+  </p>
   <% end %>
+</div>
 
-  <br />
-  <br />
+<br />
 
-  <!-- No Reviews -->
-  <% if current_user && current_user = @farm.user %>
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <div class="no_reviews_yet">
-        <% if @farm.comments.blank? %>
-        <h4>Reviews</h4>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <h4>Special Events</h4>
+  </div>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <h5>List of seasonal events here</h5>
+  </div>
+</div>
+
+<br />
+<br />
+
+<!-- Photo Modal -->
+<div class="modal fade" id="myPhoto" tabindex="-1" role="dialog" aria-labelledby="myPhotoLabel" aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myPhotoLabel">Add Farm Photos</h4>
+      </div>
+
+      <div class="modal-body">
+        <%= simple_form_for @photo, url: farm_photos_path(@farm) do |f| %>
+        <input type="hidden" value="show" name="redirect_action" />
+        <%= f.input :picture, label: false %>
+        <!-- <%= f.input :caption %> -->
+      </div>
+
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button> -->
+        <%= f.submit "Upload", class: 'btn btn-sm btn-success' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Comment Modal -->
+<div class="modal fade" id="myComment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myCommentLabel">Leave a Review</h4>
+      </div>
+
+      <div class="modal-body">
+        <%= simple_form_for [@farm, @comment] do |f| %>
+        <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
         <br />
-        <h5>This farm has no reviews yet.</h5>
+        <%= f.input :message, label: Comment %>
+
       </div>
-    </div>
-  </div>
-  <% end %>
-  <% end %>
 
-  <% if current_user && current_user != @farm.user %>
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <div class="no_reviews_yet">
-        <% if @farm.comments.blank? %>
-        <h4>Reviews</h4>
-        <br />
-        <h5>This farm has no reviews yet. Yours could be the first one!</h5>
-      </div>
-    </div>
-  </div>
-  <br />
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <!-- Comment Button trigger modal -->
-      <button class="btn-review btn btn-sm btn-success" data-toggle="modal" data-target="#myComment">
-        Leave a Review
-      </button>
-      <% end %>
-      <% end %>
-    </div>
-  </div>
-
-  <!-- Reviews -->
-  <div class="row">
-    <div class="review-section col-xs-10 col-xs-offset-1">
-      <% if @farm.comments.present? %>
-      <% if @farm.comments.count == 1 %>
-      <%= @farm.comments.count %> Review
-      <% else %>
-      <%= @farm.comments.count %> Reviews
-      <% end %>
-
-      <% if current_user && current_user != @farm.user %>
-      <!-- Comment Button trigger modal -->
-      <button class="btn btn-sm btn-success pull-right" data-toggle="modal" data-target="#myComment">
-        Leave a Review
-      </button>
-      <% end %>
-    </div>
-  </div>
-
-  <br />
-
-  <div class="row">
-    <div class="booyah-box col-xs-10 col-xs-offset-1">
-      <% @comments.each do |comment| %>
-      <div class="col-xs-12">
-        <p class="user">
-          <%= comment.user.email.split('@')[0] %>
-          <%= comment.humanized_rating %>
-        </p>
-        <p class="review">
-          <%= comment.message %>
-          <% if @farm.comments.count > 1 %>
-          <hr>
-          <% end %>
-        </p>
-      </div>
-      <% end %>
-
-
-      <div class="l-pagination">
-        <%= will_paginate @comments %>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button> -->
+        <%= f.submit "Add", class: 'btn btn-sm btn-success' %>
+        <% end %>
       </div>
 
     </div>
+  </div>
+</div>
 
+<!-- Google Maps Terrain -->
+<% if @farm.latitude.present? && @farm.longitude.present? %>
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+</style>
+
+<script>
+function initMap() {
+  var myLatLng = {lat: <%= @farm.latitude %>, lng: <%= @farm.longitude %>};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    scrollwheel: false,
+    zoom: 12,
+    center: myLatLng,
+    mapTypeId: google.maps.MapTypeId.TERRAIN
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+}
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
+
+<div id="map"></div>
+<% end %>
+
+<br />
+<br />
+
+<!-- No Reviews -->
+<% if current_user && current_user = @farm.user %>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="no_reviews_yet">
+      <% if @farm.comments.blank? %>
+      <h4>Reviews</h4>
+      <br />
+      <h5>This farm has no reviews yet.</h5>
+    </div>
+  </div>
+</div>
+<% end %>
+<% end %>
+
+<% if current_user && current_user != @farm.user %>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="no_reviews_yet">
+      <% if @farm.comments.blank? %>
+      <h4>Reviews</h4>
+      <br />
+      <h5>This farm has no reviews yet. Yours could be the first one!</h5>
+    </div>
+  </div>
+</div>
+<br />
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <!-- Comment Button trigger modal -->
+    <button class="btn-review btn btn-sm btn-success" data-toggle="modal" data-target="#myComment">
+      Leave a Review
+    </button>
+    <% end %>
     <% end %>
   </div>
+</div>
 
+<!-- Reviews -->
+<div class="row">
+  <div class="review-section col-xs-10 col-xs-offset-1">
+    <% if @farm.comments.present? %>
+    <% if @farm.comments.count == 1 %>
+    <%= @farm.comments.count %> Review
+    <% else %>
+    <%= @farm.comments.count %> Reviews
+    <% end %>
 
+    <% if current_user && current_user != @farm.user %>
+    <!-- Comment Button trigger modal -->
+    <button class="btn btn-sm btn-success pull-right" data-toggle="modal" data-target="#myComment">
+      Leave a Review
+    </button>
+    <% end %>
+  </div>
+</div>
 
-  <br />
-  <br />
+<br />
+
+<div class="row">
+  <div class="booyah-box col-xs-10 col-xs-offset-1">
+    <% @comments.each do |comment| %>
+    <div class="col-xs-12">
+      <p class="user">
+        <%= comment.user.email.split('@')[0] %>
+        <%= comment.humanized_rating %>
+      </p>
+      <p class="review">
+        <%= comment.message %>
+        <% if @farm.comments.count > 1 %>
+        <hr>
+        <% end %>
+      </p>
+    </div>
+    <% end %>
+
+    <div class="l-pagination">
+      <%= will_paginate @comments %>
+    </div>
+
+  </div>
+
+  <% end %>
+
+</div>
+<br />
+<br />

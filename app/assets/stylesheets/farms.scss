@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #map {
-  height: 300px;
+  height: 350px;
 }
 
 .l-pagination {
@@ -114,4 +114,30 @@
   font-size: 18px;
   padding-right: 0;
   padding-left: 0;
+}
+
+.farm_name_profile {
+  font-size: 23px;
+}
+
+.no_farm_yet_profile {
+  margin-top: 10px;
+}
+
+.user_info {
+  padding: 28px 0;
+}
+
+.pretty_pot {
+  max-height: 120px;
+  max-width: 120px;
+}
+
+@media(max-width:768px) {
+  .pretty_pot_container {
+    text-align: center;
+  }
+  .user_info {
+    padding-top: 0;
+  }
 }

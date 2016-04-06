@@ -7,10 +7,8 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
-  <script src='lib/jquery.min.js'></script>
-  <script src='lib/moment.min.js'></script>
-  <script src='fullcalendar/fullcalendar.js'></script>
+
+
 </head>
 <body>
   <nav class="navbar navbar" role="navigation">
@@ -30,8 +28,8 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
         <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Credits', credits_path %></li>
           <li class="list-farm-btn"><%= link_to 'List your Farm', new_farm_path %></li>
           <li><%= link_to 'All Farms', farms_path %></li>
           <% if user_signed_in? %>

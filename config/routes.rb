@@ -3,11 +3,13 @@ Farms::Application.routes.draw do
   root 'homepage#index'
 
   resources :farms do
-    resources :photos, only: :create
+    resources :photos, only: [:create, :destroy]
     resources :comments, only: :create
   end
+  get 'credits', to: 'farms#credits'
 
-  resources :users, only: :show 
+
+  resources :users, only: :show
 
 
 

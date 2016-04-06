@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Amenity.delete_all
+Amenity.create([{name: "Guest Room"},{name: "Camp Site"},{name: "Picnic Table"},
+  {name: "WiFi"},{name: "Trails"},{name: "Pond"},{name: "Woodland"},
+  {name: "Lake"},{name: "Pets Allowed"},{name: "Bicycles"}])
+
+# Activities.create([{name: "Horseback Riding"},{name: "Pick-Your-Own Seasonal Fruits & Vegetables"},{name: "Milking"},
+#     {name: "Swimming"},{name: "Hiking"},{name: "Biking"},{name: "Felting"},{name: "Herbal Walks"},
+#     {name: "Pet Farm Animals"},{name: "Kayaking/Canoeing"},{name: "Golf"}])

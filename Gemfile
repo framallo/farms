@@ -61,6 +61,9 @@ gem 'mailboxer'
 
 gem 'rollbar', '~> 2.8.3'
 
+gem 'pry-rails', :group => :development
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

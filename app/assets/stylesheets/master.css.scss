@@ -13,10 +13,6 @@ body {
   padding:10px;
 }
 
-.booyah-box h2, .booyah-box h1 {
-  margin:10px;
-}
-
 // Remove round edges from all buttons
 .btn {
   border-radius:                    0px;
@@ -54,4 +50,23 @@ Li.list-farm-btn {
   position: absolute;
   left: 50%;
   margin-left: -100px;
+  margin-top: 20px;
+}
+
+.clear {
+    clear: both;
+}
+
+a {
+    color: #545759;
+}
+
+.radio, .checkbox {
+  border: 1px transparent solid;
+   display:inline-block;
+   width:10em;
+}
+
+#farm_description {
+  height: 100px;
 }
