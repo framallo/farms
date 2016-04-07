@@ -4,6 +4,7 @@
 <div class="booyah-box col-xs-10 col-xs-offset-1">
 
   <br />
+  <br />
 
   <div class="text-center">
     <h2>Enter Your Farm Details</h2>
@@ -24,6 +25,15 @@
 
     <div class="amenities">
       <%= f.association :amenities, label: false, as: :check_boxes %>
+    </div>
+    <br />
+    <br />
+
+    <h4>Activities</h4>
+    <br />
+
+    <div class="amenities">
+      <%= f.association :activities, label: false, as: :check_boxes %>
     </div>
 
     <%= f.submit 'Save', class: 'btn btn-sm btn-success pull-right' %>

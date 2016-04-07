@@ -75,7 +75,7 @@ class FarmsController < ApplicationController
     private
 
     def farm_params
-      params.require(:farm).permit(:name, :description, :address, amenity_ids: [])
+      params.require(:farm).permit(:name, :description, :address, amenity_ids: [], activity_ids: [])
     end
 
   end
