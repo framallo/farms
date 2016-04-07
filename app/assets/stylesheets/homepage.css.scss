@@ -22,8 +22,8 @@
 }
 
 .nav > li > a:hover, .nav > li > a:focus {
-    text-decoration: none;
-    background-color: white;
+  text-decoration: none;
+  background-color: white;
 }
 
 .navbar-toggle .icon-bar {
@@ -46,7 +46,7 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height:660px;
+  height:700px;
 }
 
 h1, h2, h3, h4, h5, h6, .navbar {
@@ -69,4 +69,28 @@ h1, h2, h3, h4, h5, h6, .navbar {
   font-family: "Helvetica Neue", Helvetica;
   font-weight: 200;
   text-shadow: rgba(0,0,0,0.95) 1px 1px;
+}
+
+#search {
+  background:rgba(0,0,0, 0.5);
+  color: white;
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 100;
+  font-size: 27px;
+  line-height: 77px;
+  text-shadow: rgba(0,0,0,0.95) 1px 1px;
+  margin-top: 280px;
+  border: 0;
+  outline:none;
+  // padding-left: 250px;
+  // padding-right: 250px;
+  width: 100%
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
 }

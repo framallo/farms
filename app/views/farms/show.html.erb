@@ -78,6 +78,7 @@
     </div>
   </div>
 
+  <!-- Farm Amenities -->
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
       <h4>Amenities</h4>
@@ -86,7 +87,6 @@
 
   <br />
 
-  <!-- Farm Amenities -->
   <div class="row">
     <% @farm.amenities.map do |amenity| %>
     <div class="col-xs-5 col-xs-offset-1 col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-1">
@@ -104,9 +104,35 @@
   </div>
 </div>
 
+<!-- Farm Activities -->
 <div class="row">
   <div class="col-xs-10 col-xs-offset-1">
-    <h4>Special Events</h4>
+    <h4>Activities</h4>
+  </div>
+</div>
+
+<br />
+<div class="row">
+  <% @farm.activities.map do |activity| %>
+  <div class="col-xs-5 col-xs-offset-1 col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-1">
+    <%= activity.name %>
+  </div>
+</p>
+<% end %>
+</div>
+
+<br />
+
+<div class="row">
+<div class="col-xs-10 col-xs-offset-1">
+  <hr>
+</div>
+</div>
+
+<!-- Upcoming Events -->
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <h4>Upcoming Events</h4>
   </div>
 </div>
 
@@ -114,7 +140,7 @@
 
 <div class="row">
   <div class="col-xs-10 col-xs-offset-1">
-    <h5>List of seasonal events here</h5>
+    <h5> ... </h5>
   </div>
 </div>
 
@@ -214,14 +240,14 @@ src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></
 <br />
 
 <!-- No Reviews -->
-<% if current_user && current_user = @farm.user %>
+<% if current_user && current_user == @farm.user %>
 <div class="row">
   <div class="col-xs-10 col-xs-offset-1">
     <div class="no_reviews_yet">
       <% if @farm.comments.blank? %>
       <h4>Reviews</h4>
       <br />
-      <h5>This farm has no reviews yet.</h5>
+      <h5>Your farm has no reviews yet.</h5>
     </div>
   </div>
 </div>
@@ -239,7 +265,9 @@ src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></
     </div>
   </div>
 </div>
+
 <br />
+
 <div class="row">
   <div class="col-xs-10 col-xs-offset-1">
     <!-- Comment Button trigger modal -->

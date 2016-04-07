@@ -4,6 +4,8 @@ class Farm < ActiveRecord::Base
   has_many :comments
   has_many :farm_amenities
   has_many :amenities, :through => :farm_amenities
+  has_many :farm_activities
+  has_many :activities, :through => :farm_activities
 
   geocoded_by :address
   after_validation :geocode

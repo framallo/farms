@@ -1,9 +1,10 @@
 <div class="hero">
   <br />
-  <div class="frosty col-xs-10 col-xs-offset-1 text-center">
-    <br />
-    <h1>Search for farms near you</h1>
-    <br />
+
+  <div class="search col-xs-10 col-xs-offset-1">
+    <%= form_tag farms_path, {method: :get} do %>
+    <%= text_field_tag :search, nil, :placeholder => "Search for farms near you", class: 'search text-center' %>
+    <% end %>
   </div>
 </div>
 
