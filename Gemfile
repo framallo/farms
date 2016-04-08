@@ -63,6 +63,7 @@ gem 'rollbar', '~> 2.8.3'
 
 gem 'pry-rails', :group => :development
 
+gem 'ranked-model'
 
 
 # Use ActiveModel has_secure_password

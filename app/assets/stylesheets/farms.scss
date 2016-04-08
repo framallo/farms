@@ -67,17 +67,17 @@
   border-radius: 15px;
 }
 
-.carousel-caption {
-  background-color: rgba(0,0,0,.5);
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 10;
-  padding: 0 0 10px 25px;
-  color: #fff;
-  text-align: left;
-}
+// .carousel-caption {
+//   background-color: rgba(0,0,0,.5);
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   z-index: 10;
+//   padding: 0 0 10px 25px;
+//   color: #fff;
+//   text-align: left;
+// }
 
 .carousel-indicators {
   position: absolute;
@@ -140,4 +140,27 @@
   .user_info {
     padding-top: 0;
   }
+}
+
+// circle
+// .polaroid-image {
+//   height:200px;
+//   width:200px;
+//   overflow: hidden;
+//   border-radius:50%;
+//   -webkit-transform:translate(-50%);
+//   margin-left:100px;
+// }
+
+.polaroid-image {
+  background: white;
+  display: inline;
+  float: left;
+  margin: 0 13px 7px;
+  padding: 10px 10px 33px;
+  -moz-box-shadow: 0 4px 6px rgba(0,0,0,.3);
+  box-shadow: 0 4px 6px rgba(0,0,0,.3);
+  -moz-transition: all .15s linear;
+  position: relative;
+  top: 15px;
 }

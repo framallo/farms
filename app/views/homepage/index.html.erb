@@ -3,7 +3,7 @@
 
   <div class="search col-xs-10 col-xs-offset-1">
     <%= form_tag farms_path, {method: :get} do %>
-    <%= text_field_tag :search, nil, :placeholder => "Search for farms near you", class: 'search text-center' %>
+    <%= text_field_tag :search, nil, :placeholder => "Search for farms near you", :autocomplete => :off, class: 'search text-center' %>
     <% end %>
   </div>
 </div>
@@ -13,7 +13,7 @@
 <br />
 <div class="col-xs-10 col-xs-offset-1 features text-center">
   <div class="col-sm-4">
-    <%= image_tag 'buildings.png'%>
+    <i class="fa fa-home fa-5x"></i>
   </p>
   <h3 class="row">
     Farm Owners
@@ -27,7 +27,7 @@
 </div>
 
 <div class="col-sm-4">
-  <%= image_tag 'direction (2).png'%>
+  <i class="fa fa-users fa-5x"></i>
 </p>
 <h3 class="row">
   Farm Lovers
@@ -41,7 +41,7 @@
 </div>
 
 <div class="col-sm-4">
-  <%= image_tag 'summer (1).png'%>
+  <i class="fa fa-heart fa-5x"></i>
 </p>
 <h3 class="row">
   Happy Farm
