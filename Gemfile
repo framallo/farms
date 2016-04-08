@@ -65,6 +65,8 @@ gem 'pry-rails', :group => :development
 
 gem 'ranked-model'
 
+gem 'jquery-ui-rails'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
