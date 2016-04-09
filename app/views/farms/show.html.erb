@@ -25,15 +25,13 @@
     </div>
 
     <!-- Controls for slides -->
-    <% @farm.photos.each_with_index do |photo, index| %>
-    <% if index > 1 %>
+    <% if @farm.photos.size > 1 %>
     <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left"></span>
     </a>
     <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
-    <% end %>
     <% end %>
     <% end %>
   </div>
@@ -68,9 +66,77 @@
       <%= @farm.address %>
       <p />
       <br />
-      <%= @farm.description %>
+      <%= sanitize(@farm.description.gsub(/\n/,"<br>"), tags:["br"]) %>
     </div>
   </div>
+
+  <br />
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <hr>
+    </div>
+  </div>
+  <br />
+
+  <!-- Farm Amenities + Activities -->
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-1 col-sm-2 col-sm-offset-1">
+      <h4>Amenities</h4>
+    </div>
+    <div class="col-xs-4 col-xs-offset-1 col-sm-2 col-sm-offset-1">
+      <h4>Activities</h4>
+    </div>
+  </div>
+
+  <br />
+
+  <!-- hash version quicker -->
+  <!-- <%
+  farm_amenities = {}
+  @farm.amenities.each do |amenity|
+  farm_amenities[amenity.name] = true
+  end
+
+  Amenity.all.each do |amenity|
+  if farm_amenities[amenity.name]
+  # no strike
+  else
+  #strike
+  end
+  end
+  %> -->
+
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-1 col-sm-2 col-sm-offset-1">
+      <% Amenity.all.map do |amenity| %>
+      <% if @farm.amenities.map(&:name).include?(amenity.name) %>
+      <%= t(".amenities.#{amenity.name.gsub(/( )/, '_').try(:underscore)}_html") %>
+      <%= amenity.name %>
+      <br>
+      <% else %>
+      <%= t(".amenities.#{amenity.name.gsub(/( )/, '_').try(:underscore)}_html") %>
+      <strike><%= amenity.name %></strike>
+      <br>
+      <% end %>
+      <% end %>
+    </div>
+
+    <div class="col-xs-4 col-xs-offset-1 col-sm-2 col-sm-offset-1">
+      <% Activity.all.map do |activity| %>
+      <% if @farm.activities.map(&:name).include?(activity.name) %>
+      <%= t(".activities.#{activity.name.gsub(/( )/, '_').try(:underscore)}_html") %>
+      <%= activity.name %>
+      <br />
+      <% else %>
+      <%= t(".activities.#{activity.name.gsub(/( )/, '_').try(:underscore)}_html") %>
+      <strike><%= activity.name %></strike>
+      <br />
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <br>
 
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
@@ -78,45 +144,19 @@
     </div>
   </div>
 
-  <!-- Farm Amenities -->
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <h4>Amenities</h4>
-    </div>
-  </div>
-
-  <br />
-
-  <div class="row">
-    <% @farm.amenities.map do |amenity| %>
-    <div class="col-xs-5 col-xs-offset-1 col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-1">
-      <%= amenity.name %>
-    </div>
-  </p>
-  <% end %>
-</div>
-
-<br />
-
-<div class="row">
+  <!-- Farm Activities next row -->
+  <!-- <div class="row">
   <div class="col-xs-10 col-xs-offset-1">
-    <hr>
-  </div>
+  <h4>Activities</h4>
 </div>
-
-<!-- Farm Activities -->
-<div class="row">
-  <div class="col-xs-10 col-xs-offset-1">
-    <h4>Activities</h4>
-  </div>
 </div>
 
 <br />
 <div class="row">
-  <% @farm.activities.map do |activity| %>
-  <div class="col-xs-5 col-xs-offset-1 col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-1">
-    <%= activity.name %>
-  </div>
+<% @farm.activities.map do |activity| %>
+<div class="col-xs-5 col-xs-offset-1 col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-1">
+<%= activity.name %>
+</div>
 </p>
 <% end %>
 </div>
@@ -125,9 +165,9 @@
 
 <div class="row">
 <div class="col-xs-10 col-xs-offset-1">
-  <hr>
+<hr>
 </div>
-</div>
+</div> -->
 
 <!-- Upcoming Events -->
 <div class="row">
@@ -283,11 +323,7 @@ src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></
 <div class="row">
   <div class="review-section col-xs-10 col-xs-offset-1">
     <% if @farm.comments.present? %>
-    <% if @farm.comments.count == 1 %>
-    <%= @farm.comments.count %> Review
-    <% else %>
-    <%= @farm.comments.count %> Reviews
-    <% end %>
+    <%= pluralize(@farm.comments.count, "Review") %>
 
     <% if current_user && current_user != @farm.user %>
     <!-- Comment Button trigger modal -->

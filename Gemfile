@@ -67,6 +67,9 @@ gem 'ranked-model'
 
 gem 'jquery-ui-rails'
 
+gem "simple_calendar", "~> 2.0"
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

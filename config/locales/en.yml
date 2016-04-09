@@ -21,3 +21,29 @@
 
 en:
   hello: "Hello world"
+  farms:
+    show:
+      amenities:
+        camp_site_html: '<i class="fa fa-image"></i>'
+        lake_html: '<i class="fa fa-anchor"></i>'
+        wi_fi_html: '<i class="fa fa-wifi"></i>'
+        guest_room_html: '<i class="fa fa-home"></i>'
+        picnic_table_html: '<i class="fa fa-image"></i>'
+        pond_html: '<i class="fa fa-image"></i>'
+        woodland_html: '<i class="fa fa-tree"></i>'
+        pets_allowed_html: '<i class="fa fa-paw"></i>'
+        bicycles_html: '<i class="fa fa-bicycle"></i>'
+        trails_html: '<i class="fa fa-image"></i>'
+
+      activities:
+        horseback_riding_html: '<i class="fa fa-image"></i>'
+        pick_your_own_html: '<i class="fa fa-image"></i>'
+        milking_html: '<i class="fa fa-image"></i>'
+        swimming_html: '<i class="fa fa-image"></i>'
+        hiking_html: '<i class="fa fa-wifi"></i>'
+        biking_html: '<i class="fa fa-bicycle"></i>'
+        felting_html: '<i class="fa fa-image"></i>'
+        herbal_walks_html: '<i class="fa fa-leaf"></i>'
+        pet_farm_animals_html: '<i class="fa fa-paw"></i>'
+        kayaking_/_canoeing_html: '<i class="fa fa-image"></i>'
+        golf_html: '<i class="fa fa-image"></i>'
