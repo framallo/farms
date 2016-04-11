@@ -1,0 +1,72 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700);
+
+.simple-calendar {
+
+  .wday-0 {
+    font-size: 0.8em;
+    font-weight: 700;
+    color:#555555;
+  }
+  .wday-1 {
+    font-size: 0.8em;
+    font-weight: 700;
+    color:#555555;
+  }
+  .wday-2 {
+    font-size: 0.8em;
+    font-weight: 700;
+    color:#555555;
+  }
+  .wday-3 {
+    font-size: 0.8em;
+    font-weight: 700;
+    color:#555555;
+  }
+  .wday-4 {
+    font-size: 0.8em;
+    font-weight: 700;
+    color:#555555;
+  }
+  .wday-5 {
+    font-size: 0.8em;
+    font-weight: 700;
+    color:#555555;
+  }
+  .wday-6 {
+    font-size: 0.8em;
+    font-weight: 700;
+    color:#555555;
+  }
+
+  .today {
+
+  }
+
+  .past {  }
+  .future {}
+
+  .start-date {}
+
+  .prev-month {  }
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+}
+
+.simple-calendar a:hover {
+  text-decoration: none;
+}
+
+
+.fa-arrow-left {
+  padding-right: 10px;
+}
+
+.fa-arrow-left a:hover {
+  text-decoration: none;
+}
+
+.fa-arrow-right {
+  padding-left: 10px;
+}

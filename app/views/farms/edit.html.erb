@@ -18,7 +18,7 @@ $(function() {
 
 <div class="booyah-box col-xs-10 col-xs-offset-1">
   <%= link_to farm_path(@farm), class: 'back-to-farm' do %>
-    <i class="fa fa-angle-double-left"></i> Back to Farm
+  <i class="fa fa-angle-double-left"></i> Back to Farm
   <% end %>
   <br />
   <br />
@@ -28,7 +28,7 @@ $(function() {
   </div>
 
   <div class="col-xs-10 col-xs-offset-1">
-
+    <br />
     <br />
     <%= simple_form_for @farm do |f| %>
     <%= f.input :name %>
@@ -71,13 +71,39 @@ $(function() {
   </div>
   <br />
 
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <h4>Event Calendar</h4>
+      <br />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <%= month_calendar do |date| %>
+      <%= date %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="clear">
+  </div>
+
+  <br />
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <hr>
+    </div>
+  </div>
+  <br />
+
   <div class="clear">
   </div>
 
   <div class="col-xs-10 col-xs-offset-1">
     <div class="row">
       <div class="farm_name_profile col-xs-10">
-        <h2>Photos</h2>
+        <h3>Photos</h3>
       </div>
       <div class="col-xs-2 ">
         <!-- Photo Button trigger modal -->
@@ -102,13 +128,10 @@ $(function() {
     <% else %>
 
     <% @farm.photos.rank(:row_order).each do |photo| %>
-    <li data-item-id=<%= photo.id %>>
       <div class="row">
-        <div class="col-xs-10">
-          <ul class="photos">
+        <div class="photos col-xs-10">
             <%= image_tag photo.picture, class: 'img-responsive' %>
             <br />
-          </ul>
         </div>
 
         <div class="col-xs-2">
@@ -117,15 +140,12 @@ $(function() {
           <% end %>
         </div>
       </div>
-    </li>
     <% end %>
     <% end %>
 
     <br />
 
-    <%= month_calendar do |date| %>
-  <%= date %>
-<% end %>
+
 
     <!-- end of page -->
   </div>

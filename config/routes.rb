@@ -7,6 +7,8 @@ Farms::Application.routes.draw do
   resources :farms do
     resources :photos, only: [:create, :destroy]
     resources :comments, only: :create
+    resources :events
+
   end
   get 'credits', to: 'farms#credits'
 
