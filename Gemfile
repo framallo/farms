@@ -82,3 +82,5 @@ gem "simple_calendar", "~> 2.0"
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'sortable-rails', '~> 1.4', '>= 1.4.2.1'

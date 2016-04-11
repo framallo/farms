@@ -16,3 +16,4 @@
 //= require_tree .
 //= require moment
 //= require jquery-ui
+//= require sortable-rails
